@@ -1,9 +1,7 @@
 from fastapi import FastAPI
+from app.routes import event, health
 
-app = FastAPI()
+app = FastAPI(title="EventForge")
 
-@app.get('/health')
-def health():
-    return {
-        'status':"Ok"
-    }
+app.include_router(health.router)
+app.include_router(event.router)
