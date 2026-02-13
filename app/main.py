@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from app.routes import event, health
+from pydantic import BaseModel
 
 app = FastAPI(title="EventForge")
 

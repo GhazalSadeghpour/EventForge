@@ -2,7 +2,7 @@ from typing import Any, Dict
 from uuid import UUID, uuid4
 from datetime import datetime
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 
 
 class EventCreate(BaseModel):
@@ -12,5 +12,6 @@ class EventCreate(BaseModel):
 
 
 class EventOut(EventCreate):
+    model_config = ConfigDict(from_attributes = True) # to return SQLAlchey objects
     event_id: UUID = Field(default_factory=uuid4)
     created_at: datetime = Field(default_factory=datetime.utcnow)
