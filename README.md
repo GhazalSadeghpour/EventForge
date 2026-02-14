@@ -103,3 +103,8 @@ Example:
 ### Expected response:
 
     {"status":"ok"}
+
+
+### Run the tests:
+
+         pytest -q
